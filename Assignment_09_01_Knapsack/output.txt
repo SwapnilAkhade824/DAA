@@ -1,0 +1,336 @@
+========================================
+        0/1 KNAPSACK - DYNAMIC
+             PROGRAMMING
+========================================
+
+Enter number of items: Enter knapsack capacity: 
+Enter weight and profit for each item:
+
+Item 1:
+Weight = Profit = 
+Item 2:
+Weight = Profit = 
+Item 3:
+Weight = Profit = 
+Item 4:
+Weight = Profit = 
+Item 5:
+Weight = Profit = 
+========================================
+              INPUT ITEMS
+========================================
+
+Item      Weight    Profit    
+------------------------------
+1         2         20        
+2         3         30        
+3         4         40        
+4         5         50        
+5         6         60        
+
+Knapsack Capacity = 10 kg
+
+========================================
+         DP TABLE CONSTRUCTION
+========================================
+
+----------------------------------------
+Considering Item 1 (Weight = 2, Profit = 20)
+----------------------------------------
+DP[1][0] = 0 (capacity is 0)
+DP[1][1] : Item weight 2 > capacity 1 -> DON'T TAKE
+    DP[1][1] = 0
+DP[1][2]
+    Don't Take = DP[0][2] = 0
+    Take       = 20 + DP[0][0] = 20
+    Decision   = TAKE ITEM 1
+    DP[1][2] = 20
+DP[1][3]
+    Don't Take = DP[0][3] = 0
+    Take       = 20 + DP[0][1] = 20
+    Decision   = TAKE ITEM 1
+    DP[1][3] = 20
+DP[1][4]
+    Don't Take = DP[0][4] = 0
+    Take       = 20 + DP[0][2] = 20
+    Decision   = TAKE ITEM 1
+    DP[1][4] = 20
+DP[1][5]
+    Don't Take = DP[0][5] = 0
+    Take       = 20 + DP[0][3] = 20
+    Decision   = TAKE ITEM 1
+    DP[1][5] = 20
+DP[1][6]
+    Don't Take = DP[0][6] = 0
+    Take       = 20 + DP[0][4] = 20
+    Decision   = TAKE ITEM 1
+    DP[1][6] = 20
+DP[1][7]
+    Don't Take = DP[0][7] = 0
+    Take       = 20 + DP[0][5] = 20
+    Decision   = TAKE ITEM 1
+    DP[1][7] = 20
+DP[1][8]
+    Don't Take = DP[0][8] = 0
+    Take       = 20 + DP[0][6] = 20
+    Decision   = TAKE ITEM 1
+    DP[1][8] = 20
+DP[1][9]
+    Don't Take = DP[0][9] = 0
+    Take       = 20 + DP[0][7] = 20
+    Decision   = TAKE ITEM 1
+    DP[1][9] = 20
+DP[1][10]
+    Don't Take = DP[0][10] = 0
+    Take       = 20 + DP[0][8] = 20
+    Decision   = TAKE ITEM 1
+    DP[1][10] = 20
+
+----------------------------------------
+Considering Item 2 (Weight = 3, Profit = 30)
+----------------------------------------
+DP[2][0] = 0 (capacity is 0)
+DP[2][1] : Item weight 3 > capacity 1 -> DON'T TAKE
+    DP[2][1] = 0
+DP[2][2] : Item weight 3 > capacity 2 -> DON'T TAKE
+    DP[2][2] = 20
+DP[2][3]
+    Don't Take = DP[1][3] = 20
+    Take       = 30 + DP[1][0] = 30
+    Decision   = TAKE ITEM 2
+    DP[2][3] = 30
+DP[2][4]
+    Don't Take = DP[1][4] = 20
+    Take       = 30 + DP[1][1] = 30
+    Decision   = TAKE ITEM 2
+    DP[2][4] = 30
+DP[2][5]
+    Don't Take = DP[1][5] = 20
+    Take       = 30 + DP[1][2] = 50
+    Decision   = TAKE ITEM 2
+    DP[2][5] = 50
+DP[2][6]
+    Don't Take = DP[1][6] = 20
+    Take       = 30 + DP[1][3] = 50
+    Decision   = TAKE ITEM 2
+    DP[2][6] = 50
+DP[2][7]
+    Don't Take = DP[1][7] = 20
+    Take       = 30 + DP[1][4] = 50
+    Decision   = TAKE ITEM 2
+    DP[2][7] = 50
+DP[2][8]
+    Don't Take = DP[1][8] = 20
+    Take       = 30 + DP[1][5] = 50
+    Decision   = TAKE ITEM 2
+    DP[2][8] = 50
+DP[2][9]
+    Don't Take = DP[1][9] = 20
+    Take       = 30 + DP[1][6] = 50
+    Decision   = TAKE ITEM 2
+    DP[2][9] = 50
+DP[2][10]
+    Don't Take = DP[1][10] = 20
+    Take       = 30 + DP[1][7] = 50
+    Decision   = TAKE ITEM 2
+    DP[2][10] = 50
+
+----------------------------------------
+Considering Item 3 (Weight = 4, Profit = 40)
+----------------------------------------
+DP[3][0] = 0 (capacity is 0)
+DP[3][1] : Item weight 4 > capacity 1 -> DON'T TAKE
+    DP[3][1] = 0
+DP[3][2] : Item weight 4 > capacity 2 -> DON'T TAKE
+    DP[3][2] = 20
+DP[3][3] : Item weight 4 > capacity 3 -> DON'T TAKE
+    DP[3][3] = 30
+DP[3][4]
+    Don't Take = DP[2][4] = 30
+    Take       = 40 + DP[2][0] = 40
+    Decision   = TAKE ITEM 3
+    DP[3][4] = 40
+DP[3][5]
+    Don't Take = DP[2][5] = 50
+    Take       = 40 + DP[2][1] = 40
+    Decision   = DON'T TAKE ITEM 3
+    DP[3][5] = 50
+DP[3][6]
+    Don't Take = DP[2][6] = 50
+    Take       = 40 + DP[2][2] = 60
+    Decision   = TAKE ITEM 3
+    DP[3][6] = 60
+DP[3][7]
+    Don't Take = DP[2][7] = 50
+    Take       = 40 + DP[2][3] = 70
+    Decision   = TAKE ITEM 3
+    DP[3][7] = 70
+DP[3][8]
+    Don't Take = DP[2][8] = 50
+    Take       = 40 + DP[2][4] = 70
+    Decision   = TAKE ITEM 3
+    DP[3][8] = 70
+DP[3][9]
+    Don't Take = DP[2][9] = 50
+    Take       = 40 + DP[2][5] = 90
+    Decision   = TAKE ITEM 3
+    DP[3][9] = 90
+DP[3][10]
+    Don't Take = DP[2][10] = 50
+    Take       = 40 + DP[2][6] = 90
+    Decision   = TAKE ITEM 3
+    DP[3][10] = 90
+
+----------------------------------------
+Considering Item 4 (Weight = 5, Profit = 50)
+----------------------------------------
+DP[4][0] = 0 (capacity is 0)
+DP[4][1] : Item weight 5 > capacity 1 -> DON'T TAKE
+    DP[4][1] = 0
+DP[4][2] : Item weight 5 > capacity 2 -> DON'T TAKE
+    DP[4][2] = 20
+DP[4][3] : Item weight 5 > capacity 3 -> DON'T TAKE
+    DP[4][3] = 30
+DP[4][4] : Item weight 5 > capacity 4 -> DON'T TAKE
+    DP[4][4] = 40
+DP[4][5]
+    Don't Take = DP[3][5] = 50
+    Take       = 50 + DP[3][0] = 50
+    Decision   = DON'T TAKE ITEM 4
+    DP[4][5] = 50
+DP[4][6]
+    Don't Take = DP[3][6] = 60
+    Take       = 50 + DP[3][1] = 50
+    Decision   = DON'T TAKE ITEM 4
+    DP[4][6] = 60
+DP[4][7]
+    Don't Take = DP[3][7] = 70
+    Take       = 50 + DP[3][2] = 70
+    Decision   = DON'T TAKE ITEM 4
+    DP[4][7] = 70
+DP[4][8]
+    Don't Take = DP[3][8] = 70
+    Take       = 50 + DP[3][3] = 80
+    Decision   = TAKE ITEM 4
+    DP[4][8] = 80
+DP[4][9]
+    Don't Take = DP[3][9] = 90
+    Take       = 50 + DP[3][4] = 90
+    Decision   = DON'T TAKE ITEM 4
+    DP[4][9] = 90
+DP[4][10]
+    Don't Take = DP[3][10] = 90
+    Take       = 50 + DP[3][5] = 100
+    Decision   = TAKE ITEM 4
+    DP[4][10] = 100
+
+----------------------------------------
+Considering Item 5 (Weight = 6, Profit = 60)
+----------------------------------------
+DP[5][0] = 0 (capacity is 0)
+DP[5][1] : Item weight 6 > capacity 1 -> DON'T TAKE
+    DP[5][1] = 0
+DP[5][2] : Item weight 6 > capacity 2 -> DON'T TAKE
+    DP[5][2] = 20
+DP[5][3] : Item weight 6 > capacity 3 -> DON'T TAKE
+    DP[5][3] = 30
+DP[5][4] : Item weight 6 > capacity 4 -> DON'T TAKE
+    DP[5][4] = 40
+DP[5][5] : Item weight 6 > capacity 5 -> DON'T TAKE
+    DP[5][5] = 50
+DP[5][6]
+    Don't Take = DP[4][6] = 60
+    Take       = 60 + DP[4][0] = 60
+    Decision   = DON'T TAKE ITEM 5
+    DP[5][6] = 60
+DP[5][7]
+    Don't Take = DP[4][7] = 70
+    Take       = 60 + DP[4][1] = 60
+    Decision   = DON'T TAKE ITEM 5
+    DP[5][7] = 70
+DP[5][8]
+    Don't Take = DP[4][8] = 80
+    Take       = 60 + DP[4][2] = 80
+    Decision   = DON'T TAKE ITEM 5
+    DP[5][8] = 80
+DP[5][9]
+    Don't Take = DP[4][9] = 90
+    Take       = 60 + DP[4][3] = 90
+    Decision   = DON'T TAKE ITEM 5
+    DP[5][9] = 90
+DP[5][10]
+    Don't Take = DP[4][10] = 100
+    Take       = 60 + DP[4][4] = 100
+    Decision   = DON'T TAKE ITEM 5
+    DP[5][10] = 100
+
+========================================
+                DP TABLE
+========================================
+
+Item/Cap0     1     2     3     4     5     6     7     8     9     10    
+--------------------------------------------------------------------------
+0       0     0     0     0     0     0     0     0     0     0     0     
+I1      0     0     20    20    20    20    20    20    20    20    20    
+I2      0     0     20    30    30    50    50    50    50    50    50    
+I3      0     0     20    30    40    50    60    70    70    90    90    
+I4      0     0     20    30    40    50    60    70    80    90    100   
+I5      0     0     20    30    40    50    60    70    80    90    100   
+
+========================================
+             MAXIMUM PROFIT
+========================================
+
+DP[5][10] = 100
+
+========================================
+              BACKTRACKING
+========================================
+
+Checking Item 5:
+DP[5][10] = 100
+DP[4][10] = 100
+Decision -> ITEM 5 NOT SELECTED
+
+Checking Item 4:
+DP[4][10] = 100
+DP[3][10] = 90
+Decision -> ITEM 4 SELECTED
+Current weight = 5 kg
+Move to capacity = 5
+
+Checking Item 3:
+DP[3][5] = 50
+DP[2][5] = 50
+Decision -> ITEM 3 NOT SELECTED
+
+Checking Item 2:
+DP[2][5] = 50
+DP[1][5] = 20
+Decision -> ITEM 2 SELECTED
+Current weight = 3 kg
+Move to capacity = 2
+
+Checking Item 1:
+DP[1][2] = 20
+DP[0][2] = 0
+Decision -> ITEM 1 SELECTED
+Current weight = 2 kg
+Move to capacity = 0
+
+========================================
+              FINAL RESULT
+========================================
+
+Selected Items: Item 1 -> Item 2 -> Item 4
+Total Weight = 10 kg
+Total Profit = 100
+
+========================================
+           COMPLEXITY ANALYSIS
+========================================
+
+DP Table Construction = O(n * W)
+Backtracking          = O(n)
+Overall Time          = O(n * W)
+Space Complexity      = O(n * W)

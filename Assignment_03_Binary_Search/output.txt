@@ -1,0 +1,133 @@
+========================================
+             BINARY SEARCH
+========================================
+
+Sorted Array: [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
+
+----------------------------------------
+ITERATIVE BINARY SEARCH
+Key = 23
+----------------------------------------
+Step 1:
+low = 0, mid = 4, high = 9
+A[mid] = A[4] = 16
+Compare 16 with 23 -> 16 < 23
+Search RIGHT half
+
+Step 2:
+low = 5, mid = 7, high = 9
+A[mid] = A[7] = 56
+Compare 56 with 23 -> 56 > 23
+Search LEFT half
+
+Step 3:
+low = 5, mid = 5, high = 6
+A[mid] = A[5] = 23
+Compare 23 with 23 -> EQUAL
+Key FOUND at index 5
+
+Total comparisons for key 23 = 3
+
+----------------------------------------
+ITERATIVE BINARY SEARCH
+Key = 40
+----------------------------------------
+Step 1:
+low = 0, mid = 4, high = 9
+A[mid] = A[4] = 16
+Compare 16 with 40 -> 16 < 40
+Search RIGHT half
+
+Step 2:
+low = 5, mid = 7, high = 9
+A[mid] = A[7] = 56
+Compare 56 with 40 -> 56 > 40
+Search LEFT half
+
+Step 3:
+low = 5, mid = 5, high = 6
+A[mid] = A[5] = 23
+Compare 23 with 40 -> 23 < 40
+Search RIGHT half
+
+Step 4:
+low = 6, mid = 6, high = 6
+A[mid] = A[6] = 38
+Compare 38 with 40 -> 38 < 40
+Search RIGHT half
+
+Key NOT FOUND
+
+Total comparisons for key 40 = 4
+
+
+========================================
+RECURSIVE BINARY SEARCH - KEY 23
+========================================
+
+Step 1:
+low = 0, mid = 4, high = 9
+A[mid] = A[4] = 16
+Compare 16 with 23 -> 16 < 23
+Search RIGHT half
+
+    Step 2:
+    low = 5, mid = 7, high = 9
+    A[mid] = A[7] = 56
+    Compare 56 with 23 -> 56 > 23
+    Search LEFT half
+
+        Step 3:
+        low = 5, mid = 5, high = 6
+        A[mid] = A[5] = 23
+        Compare 23 with 23 -> EQUAL
+        Key FOUND at index 5
+
+Recursive comparisons for key 23 = 3
+
+========================================
+RECURSIVE BINARY SEARCH - KEY 40
+========================================
+
+Step 1:
+low = 0, mid = 4, high = 9
+A[mid] = A[4] = 16
+Compare 16 with 40 -> 16 < 40
+Search RIGHT half
+
+    Step 2:
+    low = 5, mid = 7, high = 9
+    A[mid] = A[7] = 56
+    Compare 56 with 40 -> 56 > 40
+    Search LEFT half
+
+        Step 3:
+        low = 5, mid = 5, high = 6
+        A[mid] = A[5] = 23
+        Compare 23 with 40 -> 23 < 40
+        Search RIGHT half
+
+            Step 4:
+            low = 6, mid = 6, high = 6
+            A[mid] = A[6] = 38
+            Compare 38 with 40 -> 38 < 40
+            Search RIGHT half
+
+                low > high -> Search space empty
+
+Recursive comparisons for key 40 = 4
+
+
+========================================
+COMPLEXITY ANALYSIS
+========================================
+
+Recursive Binary Search:
+Recurrence       = T(n) = T(n/2) + 1
+Time Complexity  = O(log n)
+Space Complexity = O(log n)
+
+Iterative Binary Search:
+Recurrence       = T(n) = T(n/2) + 1
+Time Complexity  = O(log n)
+Space Complexity = O(1)

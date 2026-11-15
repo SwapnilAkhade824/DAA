@@ -1,0 +1,71 @@
+========================================
+     MERGE SORT - COMPLETE TRACE
+========================================
+
+Original Array: [38, 27, 43, 3, 9, 82, 10]
+
+DIVIDE: [38, 27, 43, 3, 9, 82, 10]
+LEFT -> [38, 27, 43, 3]
+RIGHT -> [9, 82, 10]
+
+    DIVIDE: [38, 27, 43, 3]
+    LEFT -> [38, 27]
+    RIGHT -> [43, 3]
+
+        DIVIDE: [38, 27]
+        LEFT -> [38]
+        RIGHT -> [27]
+
+        MERGE: [38] + [27]
+        Compare: 38 <= 27 ? NO -> take 27
+        MERGED -> [27, 38]
+
+        DIVIDE: [43, 3]
+        LEFT -> [43]
+        RIGHT -> [3]
+
+        MERGE: [43] + [3]
+        Compare: 43 <= 3 ? NO -> take 3
+        MERGED -> [3, 43]
+
+    MERGE: [27, 38] + [3, 43]
+    Compare: 27 <= 3 ? NO -> take 3
+    Compare: 27 <= 43 ? YES -> take 27
+    Compare: 38 <= 43 ? YES -> take 38
+    MERGED -> [3, 27, 38, 43]
+
+    DIVIDE: [9, 82, 10]
+    LEFT -> [9, 82]
+    RIGHT -> [10]
+
+        DIVIDE: [9, 82]
+        LEFT -> [9]
+        RIGHT -> [82]
+
+        MERGE: [9] + [82]
+        Compare: 9 <= 82 ? YES -> take 9
+        MERGED -> [9, 82]
+
+    MERGE: [9, 82] + [10]
+    Compare: 9 <= 10 ? YES -> take 9
+    Compare: 82 <= 10 ? NO -> take 10
+    MERGED -> [9, 10, 82]
+
+MERGE: [3, 27, 38, 43] + [9, 10, 82]
+Compare: 3 <= 9 ? YES -> take 3
+Compare: 27 <= 9 ? NO -> take 9
+Compare: 27 <= 10 ? NO -> take 10
+Compare: 27 <= 82 ? YES -> take 27
+Compare: 38 <= 82 ? YES -> take 38
+Compare: 43 <= 82 ? YES -> take 43
+MERGED -> [3, 9, 10, 27, 38, 43, 82]
+
+========================================
+FINAL RESULT
+========================================
+Sorted Array: [3, 9, 10, 27, 38, 43, 82]
+
+Total Comparisons = 14
+Time Complexity   = O(n log n)
+Auxiliary Space   = O(n)
+Recursion Stack   = O(log n)

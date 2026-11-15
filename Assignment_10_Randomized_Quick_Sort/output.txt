@@ -1,0 +1,118 @@
+============================================================
+     RANDOMIZED QUICK SORT vs ORDINARY QUICK SORT
+============================================================
+
+------------------------------------------------------------
+TEST CASE: Unsorted Array
+Input: [24, 9, 29, 14, 19, 27]
+
+[1] Randomized Quick Sort (Random Pivot):
+  Random pivot index=2 (value=29) in [0..5]
+  Partition [0..5] pivot=29 -> pos 5 : [24, 9, 27, 14, 19, 29]
+  Random pivot index=3 (value=14) in [0..4]
+  Partition [0..4] pivot=14 -> pos 1 : [9, 14, 27, 19, 24, 29]
+  Random pivot index=4 (value=24) in [2..4]
+  Partition [2..4] pivot=24 -> pos 3 : [9, 14, 19, 24, 27, 29]
+  Sorted     : [9, 14, 19, 24, 27, 29]
+  Comparisons: 11 | Swaps: 6
+
+[2] Ordinary Quick Sort (Last Element Pivot):
+  Partition [0..5] pivot=27 -> pos 4 : [24, 9, 14, 19, 27, 29]
+  Partition [0..3] pivot=19 -> pos 2 : [9, 14, 19, 24, 27, 29]
+  Partition [0..1] pivot=14 -> pos 1 : [9, 14, 19, 24, 27, 29]
+  Sorted     : [9, 14, 19, 24, 27, 29]
+  Comparisons: 9 | Swaps: 6
+
+------------------------------------------------------------
+TEST CASE: Sorted Array
+Input: [9, 14, 19, 24, 27, 29]
+
+[1] Randomized Quick Sort (Random Pivot):
+  Random pivot index=1 (value=14) in [0..5]
+  Partition [0..5] pivot=14 -> pos 1 : [9, 14, 19, 24, 27, 29]
+  Random pivot index=4 (value=27) in [2..5]
+  Partition [2..5] pivot=27 -> pos 4 : [9, 14, 19, 24, 27, 29]
+  Random pivot index=3 (value=24) in [2..3]
+  Partition [2..3] pivot=24 -> pos 3 : [9, 14, 19, 24, 27, 29]
+  Sorted     : [9, 14, 19, 24, 27, 29]
+  Comparisons: 9 | Swaps: 4
+
+[2] Ordinary Quick Sort (Last Element Pivot):
+  Partition [0..5] pivot=29 -> pos 5 : [9, 14, 19, 24, 27, 29]
+  Partition [0..4] pivot=27 -> pos 4 : [9, 14, 19, 24, 27, 29]
+  Partition [0..3] pivot=24 -> pos 3 : [9, 14, 19, 24, 27, 29]
+  Partition [0..2] pivot=19 -> pos 2 : [9, 14, 19, 24, 27, 29]
+  Partition [0..1] pivot=14 -> pos 1 : [9, 14, 19, 24, 27, 29]
+  Sorted     : [9, 14, 19, 24, 27, 29]
+  Comparisons: 15 | Swaps: 0
+
+------------------------------------------------------------
+TEST CASE: Reverse-Sorted Array
+Input: [29, 27, 24, 19, 14, 9]
+
+[1] Randomized Quick Sort (Random Pivot):
+  Random pivot index=3 (value=19) in [0..5]
+  Partition [0..5] pivot=19 -> pos 2 : [9, 14, 19, 29, 27, 24]
+  Random pivot index=1 (value=14) in [0..1]
+  Partition [0..1] pivot=14 -> pos 1 : [9, 14, 19, 29, 27, 24]
+  Random pivot index=3 (value=29) in [3..5]
+  Partition [3..5] pivot=29 -> pos 5 : [9, 14, 19, 24, 27, 29]
+  Random pivot index=3 (value=24) in [3..4]
+  Partition [3..4] pivot=24 -> pos 3 : [9, 14, 19, 24, 27, 29]
+  Sorted     : [9, 14, 19, 24, 27, 29]
+  Comparisons: 9 | Swaps: 7
+
+[2] Ordinary Quick Sort (Last Element Pivot):
+  Partition [0..5] pivot=9 -> pos 0 : [9, 27, 24, 19, 14, 29]
+  Partition [1..5] pivot=29 -> pos 5 : [9, 27, 24, 19, 14, 29]
+  Partition [1..4] pivot=14 -> pos 1 : [9, 14, 24, 19, 27, 29]
+  Partition [2..4] pivot=27 -> pos 4 : [9, 14, 24, 19, 27, 29]
+  Partition [2..3] pivot=19 -> pos 2 : [9, 14, 19, 24, 27, 29]
+  Sorted     : [9, 14, 19, 24, 27, 29]
+  Comparisons: 15 | Swaps: 3
+
+------------------------------------------------------------
+TEST CASE: Duplicate Elements
+Input: [5, 2, 5, 1, 2]
+
+[1] Randomized Quick Sort (Random Pivot):
+  Random pivot index=0 (value=5) in [0..4]
+  Partition [0..4] pivot=5 -> pos 4 : [2, 2, 5, 1, 5]
+  Random pivot index=0 (value=2) in [0..3]
+  Partition [0..3] pivot=2 -> pos 2 : [1, 2, 2, 5, 5]
+  Random pivot index=0 (value=1) in [0..1]
+  Partition [0..1] pivot=1 -> pos 0 : [1, 2, 2, 5, 5]
+  Sorted     : [1, 2, 2, 5, 5]
+  Comparisons: 8 | Swaps: 5
+
+[2] Ordinary Quick Sort (Last Element Pivot):
+  Partition [0..4] pivot=2 -> pos 2 : [2, 1, 2, 5, 5]
+  Partition [0..1] pivot=1 -> pos 0 : [1, 2, 2, 5, 5]
+  Partition [3..4] pivot=5 -> pos 4 : [1, 2, 2, 5, 5]
+  Sorted     : [1, 2, 2, 5, 5]
+  Comparisons: 6 | Swaps: 4
+
+============================================================
+COMPARISON SUMMARY
+============================================================
+Test Case             Rand Comp   Rand Swap   Ord Comp    Ord Swap    
+--------------------------------------------------------------------
+Unsorted Array        11          6           9           6           
+Sorted Array          9           4           15          0           
+Reverse-Sorted Array  9           7           15          3           
+Duplicate Elements    8           5           6           4           
+
+============================================================
+TIME & SPACE COMPLEXITY ANALYSIS
+============================================================
+Randomized Quick Sort (Las Vegas Algorithm):
+  - Best Case Time     : O(n log n)
+  - Expected/Avg Time  : O(n log n)
+  - Worst Case Time    : O(n^2) [probability -> 0 for large n]
+  - Space Complexity   : O(log n) expected stack, O(n) worst
+
+Ordinary Quick Sort (Fixed Last-Element Pivot):
+  - Best Case Time     : O(n log n)
+  - Average Case Time  : O(n log n)
+  - Worst Case Time    : O(n^2) [triggered on sorted/reverse-sorted]
+  - Space Complexity   : O(log n) avg stack, O(n) worst

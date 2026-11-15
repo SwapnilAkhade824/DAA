@@ -1,0 +1,101 @@
+========================================
+      MEDIAN OF TWO SORTED ARRAYS
+========================================
+
+Array A = [1, 3, 8, 9, 15]
+Array B = [7, 11, 18, 19, 21]
+
+========================================
+METHOD 1: MERGING
+========================================
+
+A = [1, 3, 8, 9, 15]
+B = [7, 11, 18, 19, 21]
+
+MERGE PROCESS:
+----------------------------------------
+Compare A[0] = 1 and B[0] = 7 -> Take 1 from A
+Current merged array = [1]
+
+Compare A[1] = 3 and B[0] = 7 -> Take 3 from A
+Current merged array = [1, 3]
+
+Compare A[2] = 8 and B[0] = 7 -> Take 7 from B
+Current merged array = [1, 3, 7]
+
+Compare A[2] = 8 and B[1] = 11 -> Take 8 from A
+Current merged array = [1, 3, 7, 8]
+
+Compare A[3] = 9 and B[1] = 11 -> Take 9 from A
+Current merged array = [1, 3, 7, 8, 9]
+
+Compare A[4] = 15 and B[1] = 11 -> Take 11 from B
+Current merged array = [1, 3, 7, 8, 9, 11]
+
+Compare A[4] = 15 and B[2] = 18 -> Take 15 from A
+Current merged array = [1, 3, 7, 8, 9, 11, 15]
+
+A exhausted -> Take 18 from B
+A exhausted -> Take 19 from B
+A exhausted -> Take 21 from B
+
+----------------------------------------
+FINAL MERGED ARRAY
+----------------------------------------
+Merged = [1, 3, 7, 8, 9, 11, 15, 18, 19, 21]
+
+Middle elements:
+Left middle  = 9
+Right middle = 11
+Median = (9 + 11) / 2
+Median = 10.00
+
+
+========================================
+METHOD 2: DIVIDE AND CONQUER
+========================================
+
+----------------------------------------
+DIVIDE AND CONQUER - SIZE = 5
+A = [1, 3, 8, 9, 15]
+B = [7, 11, 18, 19, 21]
+Median of A = 8
+Median of B = 18
+8 < 18
+Discard lower half of A
+Discard upper half of B
+
+    ----------------------------------------
+    DIVIDE AND CONQUER - SIZE = 3
+    A = [8, 9, 15]
+    B = [7, 11, 18]
+    Median of A = 9
+    Median of B = 11
+    9 < 11
+    Discard lower half of A
+    Discard upper half of B
+
+        ----------------------------------------
+        DIVIDE AND CONQUER - SIZE = 2
+        A = [9, 15]
+        B = [7, 11]
+        Base case: 2 elements
+        max(first elements) = max(9, 7) = 9
+        min(second elements) = min(15, 11) = 11
+        Median = (9 + 11) / 2 = 10.00
+
+
+========================================
+FINAL COMPARISON
+========================================
+
+Median using Merge            = 10.00
+Median using Divide & Conquer = 10.00
+
+Time Complexity:
+Merging Method          = O(m + n)
+Divide & Conquer Method = O(log n)
+
+Space Complexity:
+Merging Method          = O(m + n)
+Divide & Conquer Method = O(log n) recursion stack

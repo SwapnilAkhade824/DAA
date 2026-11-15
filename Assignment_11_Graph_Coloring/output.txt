@@ -1,0 +1,83 @@
+========================================
+   GRAPH COLORING USING BACKTRACKING
+========================================
+
+Vertices: A, B, C, D
+Edges   : A-B, A-C, B-C, B-D, C-D
+
+Adjacency Matrix:
+      A  B  C  D
+   -------------
+ A |  0  1  1  0
+ B |  1  0  1  1
+ C |  1  1  0  1
+ D |  0  1  1  0
+
+========================================
+CASE 1: USING 2 COLORS (Red, Green)
+========================================
+
+Try A = Red
+  Valid -> Assign A = Red
+    Try B = Red
+      Conflict: B is adjacent to A (already Red)
+    Try B = Green
+      Valid -> Assign B = Green
+        Try C = Red
+          Conflict: C is adjacent to A (already Red)
+        Try C = Green
+          Conflict: C is adjacent to B (already Green)
+        No valid color for C -> Backtracking
+      Backtrack: Unassign B (Green)
+    No valid color for B -> Backtracking
+  Backtrack: Unassign A (Red)
+Try A = Green
+  Valid -> Assign A = Green
+    Try B = Red
+      Valid -> Assign B = Red
+        Try C = Red
+          Conflict: C is adjacent to B (already Red)
+        Try C = Green
+          Conflict: C is adjacent to A (already Green)
+        No valid color for C -> Backtracking
+      Backtrack: Unassign B (Red)
+    Try B = Green
+      Conflict: B is adjacent to A (already Green)
+    No valid color for B -> Backtracking
+  Backtrack: Unassign A (Green)
+No valid color for A -> Backtracking
+
+Result (m = 2): No solution exists using 2 colors (Red, Green).
+Reason: The graph contains odd cycles (triangles A-B-C and B-C-D),
+so at least 3 colors are required.
+
+========================================
+CASE 2: USING 3 COLORS (Red, Green, Blue)
+========================================
+
+Try A = Red
+  Valid -> Assign A = Red
+    Try B = Red
+      Conflict: B is adjacent to A (already Red)
+    Try B = Green
+      Valid -> Assign B = Green
+        Try C = Red
+          Conflict: C is adjacent to A (already Red)
+        Try C = Green
+          Conflict: C is adjacent to B (already Green)
+        Try C = Blue
+          Valid -> Assign C = Blue
+            Try D = Red
+              Valid -> Assign D = Red
+
+Result (m = 3): Solution found using 3 colors:
+Vertex A -> Red
+Vertex B -> Green
+Vertex C -> Blue
+Vertex D -> Red
+
+========================================
+COMPLEXITY ANALYSIS
+========================================
+Time Complexity  = O(m^V) worst case
+Space Complexity = O(V^2) adjacency matrix + O(V) recursion stack

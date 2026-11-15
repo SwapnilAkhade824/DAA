@@ -1,0 +1,113 @@
+========================================
+     JOB SEQUENCING WITH DEADLINES
+           GREEDY ALGORITHM
+========================================
+
+INPUT JOBS
+----------------------------------------
+J1 (Deadline = 2, Profit = 100)
+J2 (Deadline = 1, Profit = 50)
+J3 (Deadline = 2, Profit = 80)
+J4 (Deadline = 3, Profit = 70)
+J5 (Deadline = 1, Profit = 60)
+
+========================================
+STEP 1: SORT JOBS BY PROFIT
+========================================
+
+Jobs after sorting by profit (descending):
+
+1. J1 -> Deadline = 2, Profit = 100
+2. J3 -> Deadline = 2, Profit = 80
+3. J4 -> Deadline = 3, Profit = 70
+4. J5 -> Deadline = 1, Profit = 60
+5. J2 -> Deadline = 1, Profit = 50
+
+========================================
+STEP 2: FIND MAXIMUM DEADLINE
+========================================
+
+Maximum Deadline = 3
+
+========================================
+STEP 3: CREATE EMPTY SLOTS
+========================================
+
+Slots created:
+Slot 1 -> Empty
+Slot 2 -> Empty
+Slot 3 -> Empty
+
+========================================
+STEP 4: GREEDY JOB SELECTION
+========================================
+
+----------------------------------------
+Considering Job J1
+Deadline = 2
+Profit   = 100
+Checking Slot 2 -> EMPTY
+Assign J1 to Slot 2
+Profit Added = 100
+
+----------------------------------------
+Considering Job J3
+Deadline = 2
+Profit   = 80
+Checking Slot 2 -> OCCUPIED by J1
+Move one slot backward...
+Checking Slot 1 -> EMPTY
+Assign J3 to Slot 1
+Profit Added = 80
+
+----------------------------------------
+Considering Job J4
+Deadline = 3
+Profit   = 70
+Checking Slot 3 -> EMPTY
+Assign J4 to Slot 3
+Profit Added = 70
+
+----------------------------------------
+Considering Job J5
+Deadline = 1
+Profit   = 60
+Checking Slot 1 -> OCCUPIED by J3
+Move one slot backward...
+No available slot before deadline.
+Job J5 is NOT selected.
+
+----------------------------------------
+Considering Job J2
+Deadline = 1
+Profit   = 50
+Checking Slot 1 -> OCCUPIED by J3
+Move one slot backward...
+No available slot before deadline.
+Job J2 is NOT selected.
+
+========================================
+FINAL JOB SCHEDULE
+========================================
+
+Execution Order:
+
+Slot 1 -> J3 (Deadline = 2, Profit = 80)
+Slot 2 -> J1 (Deadline = 2, Profit = 100)
+Slot 3 -> J4 (Deadline = 3, Profit = 70)
+
+========================================
+FINAL RESULT
+========================================
+
+Selected Jobs: J3 J1 J4 
+Maximum Total Profit = 250
+
+========================================
+COMPLEXITY ANALYSIS
+========================================
+
+Sorting Jobs    = O(n log n)
+Finding Slots   = O(n^2) worst case
+Overall Time    = O(n^2)
+Auxiliary Space = O(n)

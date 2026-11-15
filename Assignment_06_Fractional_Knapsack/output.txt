@@ -1,0 +1,80 @@
+========================================
+     FRACTIONAL KNAPSACK - GREEDY
+========================================
+
+Knapsack Capacity = 50 kg
+
+STEP 1: VALUE-TO-WEIGHT RATIO
+----------------------------------------
+Item 1:
+Value  = 60
+Weight = 10 kg
+Ratio  = 60 / 10 = 6.00
+
+Item 2:
+Value  = 100
+Weight = 20 kg
+Ratio  = 100 / 20 = 5.00
+
+Item 3:
+Value  = 120
+Weight = 30 kg
+Ratio  = 120 / 30 = 4.00
+
+STEP 2: SORT BY VALUE/WEIGHT RATIO
+----------------------------------------
+Order after sorting:
+
+Position 1 -> Item with Value = 60, Weight = 10 kg, Ratio = 6.00
+Position 2 -> Item with Value = 100, Weight = 20 kg, Ratio = 5.00
+Position 3 -> Item with Value = 120, Weight = 30 kg, Ratio = 4.00
+
+STEP 3: GREEDY SELECTION
+----------------------------------------
+
+Considering Item 1
+Weight = 10 kg
+Value  = 60
+Ratio  = 6.00
+Remaining Capacity = 50 kg
+Decision: TAKE COMPLETE ITEM
+Weight taken = 10 kg
+Value added  = 60
+Current Total Value = 60.00
+Remaining Capacity  = 40 kg
+
+Considering Item 2
+Weight = 20 kg
+Value  = 100
+Ratio  = 5.00
+Remaining Capacity = 40 kg
+Decision: TAKE COMPLETE ITEM
+Weight taken = 20 kg
+Value added  = 100
+Current Total Value = 160.00
+Remaining Capacity  = 20 kg
+
+Considering Item 3
+Weight = 30 kg
+Value  = 120
+Ratio  = 4.00
+Remaining Capacity = 20 kg
+Decision: TAKE FRACTION OF ITEM
+Fraction taken = 0.67
+Weight taken   = 20 kg
+Value added    = 80.00
+
+========================================
+FINAL RESULT
+========================================
+Maximum Value      = 240.00
+Remaining Capacity = 0 kg
+
+========================================
+COMPLEXITY ANALYSIS
+========================================
+Ratio Calculation = O(n)
+Sorting           = O(n log n)
+Greedy Selection  = O(n)
+Overall Time      = O(n log n)
+Auxiliary Space   = O(n)

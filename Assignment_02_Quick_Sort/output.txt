@@ -1,0 +1,203 @@
+
+========================================
+QUICK SORT - ORIGINAL INPUT
+========================================
+
+Original Array: [24, 9, 29, 14, 19, 27]
+
+QUICKSORT ON: [24, 9, 29, 14, 19, 27]
+    ----------------------------------------
+    PARTITION: [24, 9, 29, 14, 19, 27]
+    Pivot = 27 (last element)
+    Compare: 24 <= 27 ? YES
+    No swap needed
+    Current array: [24, 9, 29, 14, 19, 27]
+    Compare: 9 <= 27 ? YES
+    No swap needed
+    Current array: [24, 9, 29, 14, 19, 27]
+    Compare: 29 <= 27 ? NO
+    Current array: [24, 9, 29, 14, 19, 27]
+    Compare: 14 <= 27 ? YES
+    SWAP: 29 <-> 14
+    Current array: [24, 9, 14, 29, 19, 27]
+    Compare: 19 <= 27 ? YES
+    SWAP: 29 <-> 19
+    Current array: [24, 9, 14, 19, 29, 27]
+    Place pivot 27 at position 4
+    SWAP: 29 <-> 27
+    AFTER PARTITION: [24, 9, 14, 19, 27, 29]
+    Pivot final position = 4
+    ----------------------------------------
+
+    LEFT  PART: [24, 9, 14, 19]
+    RIGHT PART: [29]
+
+    QUICKSORT ON: [24, 9, 14, 19]
+        ----------------------------------------
+        PARTITION: [24, 9, 14, 19]
+        Pivot = 19 (last element)
+        Compare: 24 <= 19 ? NO
+        Current array: [24, 9, 14, 19, 27, 29]
+        Compare: 9 <= 19 ? YES
+        SWAP: 24 <-> 9
+        Current array: [9, 24, 14, 19, 27, 29]
+        Compare: 14 <= 19 ? YES
+        SWAP: 24 <-> 14
+        Current array: [9, 14, 24, 19, 27, 29]
+        Place pivot 19 at position 2
+        SWAP: 24 <-> 19
+        AFTER PARTITION: [9, 14, 19, 24, 27, 29]
+        Pivot final position = 2
+        ----------------------------------------
+
+        LEFT  PART: [9, 14]
+        RIGHT PART: [24]
+
+        QUICKSORT ON: [9, 14]
+            ----------------------------------------
+            PARTITION: [9, 14]
+            Pivot = 14 (last element)
+            Compare: 9 <= 14 ? YES
+            No swap needed
+            Current array: [9, 14, 19, 24, 27, 29]
+            Place pivot 14 at position 1
+            AFTER PARTITION: [9, 14, 19, 24, 27, 29]
+            Pivot final position = 1
+            ----------------------------------------
+
+            LEFT  PART: [9]
+            RIGHT PART: []
+
+========================================
+FINAL RESULT
+========================================
+Sorted Array: [9, 14, 19, 24, 27, 29]
+Total Comparisons = 9
+Total Swaps       = 6
+
+========================================
+QUICK SORT - ALREADY SORTED INPUT
+========================================
+
+Original Array: [9, 14, 19, 24, 27, 29]
+
+QUICKSORT ON: [9, 14, 19, 24, 27, 29]
+    ----------------------------------------
+    PARTITION: [9, 14, 19, 24, 27, 29]
+    Pivot = 29 (last element)
+    Compare: 9 <= 29 ? YES
+    No swap needed
+    Current array: [9, 14, 19, 24, 27, 29]
+    Compare: 14 <= 29 ? YES
+    No swap needed
+    Current array: [9, 14, 19, 24, 27, 29]
+    Compare: 19 <= 29 ? YES
+    No swap needed
+    Current array: [9, 14, 19, 24, 27, 29]
+    Compare: 24 <= 29 ? YES
+    No swap needed
+    Current array: [9, 14, 19, 24, 27, 29]
+    Compare: 27 <= 29 ? YES
+    No swap needed
+    Current array: [9, 14, 19, 24, 27, 29]
+    Place pivot 29 at position 5
+    AFTER PARTITION: [9, 14, 19, 24, 27, 29]
+    Pivot final position = 5
+    ----------------------------------------
+
+    LEFT  PART: [9, 14, 19, 24, 27]
+    RIGHT PART: []
+
+    QUICKSORT ON: [9, 14, 19, 24, 27]
+        ----------------------------------------
+        PARTITION: [9, 14, 19, 24, 27]
+        Pivot = 27 (last element)
+        Compare: 9 <= 27 ? YES
+        No swap needed
+        Current array: [9, 14, 19, 24, 27, 29]
+        Compare: 14 <= 27 ? YES
+        No swap needed
+        Current array: [9, 14, 19, 24, 27, 29]
+        Compare: 19 <= 27 ? YES
+        No swap needed
+        Current array: [9, 14, 19, 24, 27, 29]
+        Compare: 24 <= 27 ? YES
+        No swap needed
+        Current array: [9, 14, 19, 24, 27, 29]
+        Place pivot 27 at position 4
+        AFTER PARTITION: [9, 14, 19, 24, 27, 29]
+        Pivot final position = 4
+        ----------------------------------------
+
+        LEFT  PART: [9, 14, 19, 24]
+        RIGHT PART: []
+
+        QUICKSORT ON: [9, 14, 19, 24]
+            ----------------------------------------
+            PARTITION: [9, 14, 19, 24]
+            Pivot = 24 (last element)
+            Compare: 9 <= 24 ? YES
+            No swap needed
+            Current array: [9, 14, 19, 24, 27, 29]
+            Compare: 14 <= 24 ? YES
+            No swap needed
+            Current array: [9, 14, 19, 24, 27, 29]
+            Compare: 19 <= 24 ? YES
+            No swap needed
+            Current array: [9, 14, 19, 24, 27, 29]
+            Place pivot 24 at position 3
+            AFTER PARTITION: [9, 14, 19, 24, 27, 29]
+            Pivot final position = 3
+            ----------------------------------------
+
+            LEFT  PART: [9, 14, 19]
+            RIGHT PART: []
+
+            QUICKSORT ON: [9, 14, 19]
+                ----------------------------------------
+                PARTITION: [9, 14, 19]
+                Pivot = 19 (last element)
+                Compare: 9 <= 19 ? YES
+                No swap needed
+                Current array: [9, 14, 19, 24, 27, 29]
+                Compare: 14 <= 19 ? YES
+                No swap needed
+                Current array: [9, 14, 19, 24, 27, 29]
+                Place pivot 19 at position 2
+                AFTER PARTITION: [9, 14, 19, 24, 27, 29]
+                Pivot final position = 2
+                ----------------------------------------
+
+                LEFT  PART: [9, 14]
+                RIGHT PART: []
+
+                QUICKSORT ON: [9, 14]
+                    ----------------------------------------
+                    PARTITION: [9, 14]
+                    Pivot = 14 (last element)
+                    Compare: 9 <= 14 ? YES
+                    No swap needed
+                    Current array: [9, 14, 19, 24, 27, 29]
+                    Place pivot 14 at position 1
+                    AFTER PARTITION: [9, 14, 19, 24, 27, 29]
+                    Pivot final position = 1
+                    ----------------------------------------
+
+                    LEFT  PART: [9]
+                    RIGHT PART: []
+
+========================================
+FINAL RESULT
+========================================
+Sorted Array: [9, 14, 19, 24, 27, 29]
+Total Comparisons = 15
+Total Swaps       = 0
+
+========================================
+COMPLEXITY ANALYSIS
+========================================
+Best Case     = O(n log n)
+Average Case  = O(n log n)
+Worst Case    = O(n^2)
+Average Space = O(log n)
+Worst Space   = O(n)

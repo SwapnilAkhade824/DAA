@@ -1,0 +1,72 @@
+========================================
+  SUM OF SUBSETS - BRANCH AND BOUND
+========================================
+
+Enter number of elements: Enter the elements: Enter target sum: 
+Sorted Set : { 5 10 12 13 15 18 }
+Target Sum : 30
+Total Sum  : 73
+
+========================================
+BRANCH AND BOUND TRACE
+========================================
+  [PRUNE]    { 5 10 12 13 } -> sum (40) > target (30)
+  [PRUNE]    { 5 10 12 15 } -> sum (42) > target (30)
+  [PRUNE]    { 5 10 12 18 } -> sum (45) > target (30)
+  [PRUNE]    { 5 10 12 } -> sum + remaining (27 + 0 = 27) < target (30)
+  [PRUNE]    { 5 10 13 15 } -> sum (43) > target (30)
+  [PRUNE]    { 5 10 13 18 } -> sum (46) > target (30)
+  [PRUNE]    { 5 10 13 } -> sum + remaining (28 + 0 = 28) < target (30)
+  [SOLUTION] { 5 10 15 } -> sum = 30
+  [PRUNE]    { 5 10 18 } -> sum (33) > target (30)
+  [PRUNE]    { 5 10 } -> sum + remaining (15 + 0 = 15) < target (30)
+  [SOLUTION] { 5 12 13 } -> sum = 30
+  [PRUNE]    { 5 12 15 } -> sum (32) > target (30)
+  [PRUNE]    { 5 12 18 } -> sum (35) > target (30)
+  [PRUNE]    { 5 12 } -> sum + remaining (17 + 0 = 17) < target (30)
+  [PRUNE]    { 5 13 15 } -> sum (33) > target (30)
+  [PRUNE]    { 5 13 18 } -> sum (36) > target (30)
+  [PRUNE]    { 5 13 } -> sum + remaining (18 + 0 = 18) < target (30)
+  [PRUNE]    { 5 15 18 } -> sum (38) > target (30)
+  [PRUNE]    { 5 15 } -> sum + remaining (20 + 0 = 20) < target (30)
+  [PRUNE]    { 5 } -> sum + remaining (5 + 18 = 23) < target (30)
+  [PRUNE]    { 10 12 13 } -> sum (35) > target (30)
+  [PRUNE]    { 10 12 15 } -> sum (37) > target (30)
+  [PRUNE]    { 10 12 18 } -> sum (40) > target (30)
+  [PRUNE]    { 10 12 } -> sum + remaining (22 + 0 = 22) < target (30)
+  [PRUNE]    { 10 13 15 } -> sum (38) > target (30)
+  [PRUNE]    { 10 13 18 } -> sum (41) > target (30)
+  [PRUNE]    { 10 13 } -> sum + remaining (23 + 0 = 23) < target (30)
+  [PRUNE]    { 10 15 18 } -> sum (43) > target (30)
+  [PRUNE]    { 10 15 } -> sum + remaining (25 + 0 = 25) < target (30)
+  [PRUNE]    { 10 } -> sum + remaining (10 + 18 = 28) < target (30)
+  [PRUNE]    { 12 13 15 } -> sum (40) > target (30)
+  [PRUNE]    { 12 13 18 } -> sum (43) > target (30)
+  [PRUNE]    { 12 13 } -> sum + remaining (25 + 0 = 25) < target (30)
+  [PRUNE]    { 12 15 18 } -> sum (45) > target (30)
+  [PRUNE]    { 12 15 } -> sum + remaining (27 + 0 = 27) < target (30)
+  [SOLUTION] { 12 18 } -> sum = 30
+  [PRUNE]    { 12 } -> sum + remaining (12 + 0 = 12) < target (30)
+  [PRUNE]    { 13 15 18 } -> sum (46) > target (30)
+  [PRUNE]    { 13 15 } -> sum + remaining (28 + 0 = 28) < target (30)
+  [PRUNE]    { 13 18 } -> sum (31) > target (30)
+  [PRUNE]    { 13 } -> sum + remaining (13 + 0 = 13) < target (30)
+  [PRUNE]    { 15 18 } -> sum (33) > target (30)
+  [PRUNE]    { 15 } -> sum + remaining (15 + 0 = 15) < target (30)
+  [PRUNE]    { } -> sum + remaining (0 + 18 = 18) < target (30)
+
+========================================
+Subsets with sum 30:
+========================================
+{ 5 10 15 }
+{ 5 12 13 }
+{ 12 18 }
+
+Nodes Explored : 87
+Branches Pruned: 41
+
+========================================
+COMPLEXITY ANALYSIS
+========================================
+Worst-case Time  : O(2^n)
+Worst-case Space : O(n)
